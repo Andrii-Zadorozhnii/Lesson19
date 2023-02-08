@@ -1,0 +1,99 @@
+@use "var";
+
+
+body{
+    background: pink;
+}
+
+
+.increase-sidebar{
+    position: relative;
+    top: 40px;
+    left: 75px;
+    width: 20px;
+    height: 20px;
+    border: 0px;
+    margin: 0;
+    padding: 0;
+    background-color: inherit;
+    border-radius: 50%;
+    z-index: 1;
+
+
+    &:not(:active) + .sidebar .svg-description{
+        display: none;
+    }
+
+    &:active{
+        left: 210px;
+        transition: 1s all;
+    }
+
+    &:active + .sidebar{
+        width: 220px;
+        transition: 1s all;
+    }
+
+    & svg{
+        margin: 0;
+        width: 20px;
+        height: 20px;
+        @include flexCenterCenter;
+
+        &:hover{
+            fill: red;
+        }
+    }
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 84px;
+    
+    height: 100vh;
+    background: white;
+
+    
+}
+
+.svg-description{
+    transition: 1s all;
+}
+
+
+
+.svg-icon{
+    margin-left: 26px;
+    width: 32px;
+    height: 32px;
+}
+
+.section{
+    
+    &:hover{
+        width: 220px;
+        transition: .5s all;
+        background-color: var.$iconHoverColor;
+        border-radius: 20px;
+    }
+}
+
+
+.section a{
+    display: flex;
+    align-items: center;
+    // display: grid;
+    // grid-template-columns: 32px 1fr;
+    // align-items: center;
+    // justify-content: center;
+    gap: 7px;
+    height: 46px;
+
+    &:hover{
+        background: var.$iconHoverColor;
+    }
+    
+}
+

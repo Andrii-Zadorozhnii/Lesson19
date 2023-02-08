@@ -1,0 +1,181 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-margin-before: 0em;
+          margin-block-start: 0em;
+  -webkit-margin-after: 0em;
+          margin-block-end: 0em;
+  -webkit-padding-start: 0px;
+          padding-inline-start: 0px;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+li:hover {
+  cursor: grab;
+}
+
+a:link {
+  color: blue;
+}
+
+a:visited {
+  color: blue;
+}
+
+input[type=text],
+input[type=email],
+input[type=phone] {
+  padding-left: 10px;
+}
+
+body {
+  background: pink;
+}
+
+.increase-sidebar {
+  position: relative;
+  top: 40px;
+  left: 75px;
+  width: 20px;
+  height: 20px;
+  border: 0px;
+  margin: 0;
+  padding: 0;
+  background-color: inherit;
+  border-radius: 50%;
+  z-index: 1;
+}
+.increase-sidebar:not(:active) + .sidebar .svg-description {
+  display: none;
+}
+.increase-sidebar:active {
+  left: 210px;
+  transition: 1s all;
+}
+.increase-sidebar:active + .sidebar {
+  width: 220px;
+  transition: 1s all;
+}
+.increase-sidebar svg {
+  margin: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.increase-sidebar svg:hover {
+  fill: red;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 84px;
+  height: 100vh;
+  background: white;
+}
+
+.svg-description {
+  transition: 1s all;
+}
+
+.svg-icon {
+  margin-left: 26px;
+  width: 32px;
+  height: 32px;
+}
+
+.section:hover {
+  width: 220px;
+  transition: 0.5s all;
+  background-color: #9E8CFC;
+  border-radius: 20px;
+}
+
+.section a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 46px;
+}
+.section a:hover {
+  background: #9E8CFC;
+}/*# sourceMappingURL=index.css.map */

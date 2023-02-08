@@ -1,0 +1,15 @@
+@use "var";
+
+
+@mixin flexCenterCenter(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+@mixin section($iconColor){
+    fill: var.$iconColor;
+    @include flexCenterCenter()
+}
