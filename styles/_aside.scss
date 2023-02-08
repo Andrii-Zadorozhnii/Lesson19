@@ -2,48 +2,7 @@
 
 
 body{
-    background: pink;
-}
-
-
-.increase-sidebar{
-    position: relative;
-    top: 40px;
-    left: 75px;
-    width: 20px;
-    height: 20px;
-    border: 0px;
-    margin: 0;
-    padding: 0;
-    background-color: inherit;
-    border-radius: 50%;
-    z-index: 1;
-
-
-    &:not(:active) + .sidebar .svg-description{
-        display: none;
-    }
-
-    &:active{
-        left: 210px;
-        transition: 1s all;
-    }
-
-    &:active + .sidebar{
-        width: 220px;
-        transition: 1s all;
-    }
-
-    & svg{
-        margin: 0;
-        width: 20px;
-        height: 20px;
-        @include flexCenterCenter;
-
-        &:hover{
-            fill: red;
-        }
-    }
+    background: #e9e6e6;
 }
 
 .sidebar{
@@ -51,49 +10,134 @@ body{
     top: 0;
     left: 0;
     width: 84px;
-    
     height: 100vh;
     background: white;
-
-    
+    box-shadow:  20px 20px 60px #bebebe,
+    -20px -20px 60px #ffffff;;
 }
 
+.svg-checkbox{
+    position: relative;
+    top: 40px;
+    left: 49px;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: inherit;
+}
 .svg-description{
-    transition: 1s all;
+    display: none;
 }
 
 
+.increase-sidebar{
+    position: relative;
+    top: 40px;
+    left: 74px;
+    width: 21px;
+    height: 20px;
+    border: 0px;
+    margin: 0;
+    padding: 0;
+    z-index: 999;
+    opacity: 0;
+    background: #ffffff;
 
-.svg-icon{
-    margin-left: 26px;
-    width: 32px;
-    height: 32px;
-}
 
-.section{
-    
-    &:hover{
+    &:checked{
+        transition-delay: 0.2s;
+        left: 210px;
+        transition: 1s all;
+        
+    }
+
+    &:checked ~ .svg-checkbox{
+        transition-delay: 0.2s;
+        left: 184px;
+        transition: 1s all;
+        rotate: 900deg;
+        // fill: var.$iconHoverColor;
+        // background: white;
+    }
+
+    &:hover ~ .svg-checkbox{
+        background: var.$iconHoverColor;
+        fill: white;
+    }
+
+    &:checked ~ .svg-description{
+        display: initial;
+    }
+
+    &:checked ~ .sidebar{
         width: 220px;
-        transition: .5s all;
-        background-color: var.$iconHoverColor;
-        border-radius: 20px;
+        transition-delay: 0.2s;
+        transition: 1s all;
     }
 }
 
 
-.section a{
-    display: flex;
-    align-items: center;
-    // display: grid;
-    // grid-template-columns: 32px 1fr;
-    // align-items: center;
-    // justify-content: center;
-    gap: 7px;
+.logo-svg{
+    width: 32px;
+}
+
+.svg-icon{
+    max-height: 32px;
+    width: 26px;
+}
+
+
+
+.section {
+    @include flexCenterCenter;
     height: 46px;
+    width: 100%;
+    
 
     &:hover{
         background: var.$iconHoverColor;
+        transition: 1s;
+    } 
+
+    & a{
+        @include flexCenterCenter;
+        width: 100%;
+
+        &:hover .svg-icon{
+            
+            fill: white;
+        }
     }
-    
 }
+
+.logo{
+    height: 102px;
+}
+
+.dashboard{
+    height: 46px;
+}
+
+.underline{
+    height: 25px;
+
+    &:hover{
+        background: inherit;
+    }
+    // display: inline-flex;
+}
+
+// .line-short{
+//     border-top: 2px solid var.$iconHoverColor;
+//     width: 8px;
+//     border-radius: 10px;
+// }
+
+// .line-long{
+//     border-top: 2px solid var.$iconHoverColor;
+//     width: 16px;
+//     border-radius: 10px;
+// }
+
 

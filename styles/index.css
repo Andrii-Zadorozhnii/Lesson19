@@ -105,43 +105,7 @@ input[type=phone] {
 }
 
 body {
-  background: pink;
-}
-
-.increase-sidebar {
-  position: relative;
-  top: 40px;
-  left: 75px;
-  width: 20px;
-  height: 20px;
-  border: 0px;
-  margin: 0;
-  padding: 0;
-  background-color: inherit;
-  border-radius: 50%;
-  z-index: 1;
-}
-.increase-sidebar:not(:active) + .sidebar .svg-description {
-  display: none;
-}
-.increase-sidebar:active {
-  left: 210px;
-  transition: 1s all;
-}
-.increase-sidebar:active + .sidebar {
-  width: 220px;
-  transition: 1s all;
-}
-.increase-sidebar svg {
-  margin: 0;
-  width: 20px;
-  height: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.increase-sidebar svg:hover {
-  fill: red;
+  background: #e9e6e6;
 }
 
 .sidebar {
@@ -151,31 +115,102 @@ body {
   width: 84px;
   height: 100vh;
   background: white;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+}
+
+.svg-checkbox {
+  position: relative;
+  top: 40px;
+  left: 49px;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: inherit;
 }
 
 .svg-description {
+  display: none;
+}
+
+.increase-sidebar {
+  position: relative;
+  top: 40px;
+  left: 74px;
+  width: 21px;
+  height: 20px;
+  border: 0px;
+  margin: 0;
+  padding: 0;
+  z-index: 999;
+  opacity: 0;
+  background: #ffffff;
+}
+.increase-sidebar:checked {
+  transition-delay: 0.2s;
+  left: 210px;
+  transition: 1s all;
+}
+.increase-sidebar:checked ~ .svg-checkbox {
+  transition-delay: 0.2s;
+  left: 184px;
+  transition: 1s all;
+  rotate: 900deg;
+}
+.increase-sidebar:hover ~ .svg-checkbox {
+  background: #9E8CFC;
+  fill: white;
+}
+.increase-sidebar:checked ~ .svg-description {
+  display: initial;
+}
+.increase-sidebar:checked ~ .sidebar {
+  width: 220px;
+  transition-delay: 0.2s;
   transition: 1s all;
 }
 
-.svg-icon {
-  margin-left: 26px;
+.logo-svg {
   width: 32px;
-  height: 32px;
 }
 
+.svg-icon {
+  max-height: 32px;
+  width: 26px;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 46px;
+  width: 100%;
+}
 .section:hover {
-  width: 220px;
-  transition: 0.5s all;
-  background-color: #9E8CFC;
-  border-radius: 20px;
+  background: #9E8CFC;
+  transition: 1s;
 }
-
 .section a {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 7px;
+  width: 100%;
+}
+.section a:hover .svg-icon {
+  fill: white;
+}
+
+.logo {
+  height: 102px;
+}
+
+.dashboard {
   height: 46px;
 }
-.section a:hover {
-  background: #9E8CFC;
+
+.underline {
+  height: 25px;
+}
+.underline:hover {
+  background: inherit;
 }/*# sourceMappingURL=index.css.map */
