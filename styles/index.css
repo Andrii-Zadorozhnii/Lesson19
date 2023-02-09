@@ -91,11 +91,11 @@ li:hover {
 }
 
 a:link {
-  color: blue;
+  color: rgb(0, 0, 0);
 }
 
 a:visited {
-  color: blue;
+  color: rgb(0, 0, 0);
 }
 
 input[type=text],
@@ -109,11 +109,10 @@ body {
 }
 
 .sidebar {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 84px;
-  height: 100vh;
   background: white;
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
@@ -126,10 +125,11 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: inherit;
+  background: white;
 }
 
 .svg-description {
+  margin-left: 15px;
   display: none;
 }
 
@@ -151,23 +151,46 @@ body {
   left: 210px;
   transition: 1s all;
 }
-.increase-sidebar:checked ~ .svg-checkbox {
+.increase-sidebar:checked ~ .sidebar {
+  width: 220px;
+  transition-delay: 0.2s;
+  transition: 1s all;
+}
+.increase-sidebar:checked ~ .sidebar ul .section {
+  justify-content: flex-start;
+  padding-left: 15px;
+  transition: 1s;
+}
+.increase-sidebar:checked ~ .sidebar ul .section a {
+  margin-left: 30px;
+}
+.increase-sidebar:checked ~ .sidebar ul .section p {
+  display: block;
+  transition: 0.05s;
+  font: 400 16px/20px "Montserrat", sans-serif;
+  color: #4F4F4F;
+}
+.increase-sidebar:checked ~ .sidebar ul .section .svg-hide {
+  display: none;
+}
+.increase-sidebar:checked ~ .two {
+  padding-left: 220px;
+}
+.increase-sidebar:checked + .svg-checkbox {
   transition-delay: 0.2s;
   left: 184px;
   transition: 1s all;
   rotate: 900deg;
 }
-.increase-sidebar:hover ~ .svg-checkbox {
+.increase-sidebar:hover + .svg-checkbox {
   background: #9E8CFC;
   fill: white;
+  transform: scale(1.1);
 }
-.increase-sidebar:checked ~ .svg-description {
-  display: initial;
-}
-.increase-sidebar:checked ~ .sidebar {
-  width: 220px;
-  transition-delay: 0.2s;
-  transition: 1s all;
+
+.two {
+  padding-left: 100px;
+  padding-right: 40px;
 }
 
 .logo-svg {
@@ -177,6 +200,7 @@ body {
 .svg-icon {
   max-height: 32px;
   width: 26px;
+  fill: #4F4F4F;
 }
 
 .section {
@@ -184,17 +208,22 @@ body {
   justify-content: center;
   align-items: center;
   height: 46px;
-  width: 100%;
 }
 .section:hover {
   background: #9E8CFC;
   transition: 1s;
+  border-radius: 30px;
+}
+.section:hover + a .svg-description {
+  color: white;
+}
+.section:hover a svg {
+  fill: white;
 }
 .section a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
 }
 .section a:hover .svg-icon {
   fill: white;
@@ -212,5 +241,5 @@ body {
   height: 25px;
 }
 .underline:hover {
-  background: inherit;
+  background: none;
 }/*# sourceMappingURL=index.css.map */

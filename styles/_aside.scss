@@ -6,11 +6,10 @@ body{
 }
 
 .sidebar{
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 84px;
-    height: 100vh;
     background: white;
     box-shadow:  20px 20px 60px #bebebe,
     -20px -20px 60px #ffffff;;
@@ -24,9 +23,10 @@ body{
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: inherit;
+    background: white;
 }
 .svg-description{
+    margin-left: 15px;
     display: none;
 }
 
@@ -49,34 +49,66 @@ body{
         transition-delay: 0.2s;
         left: 210px;
         transition: 1s all;
-        
+
+        & ~ .sidebar{
+            width: 220px;
+            transition-delay: 0.2s;
+            transition: 1s all;
+            
+        } 
+
+        & ~ .sidebar  ul  .section{
+            justify-content: flex-start;
+            padding-left: 15px;
+            transition: 1s;
+        }
+        & ~ .sidebar  ul  .section a{
+            margin-left: 30px;
+            
+        }
+
+        & ~ .sidebar  ul  .section{
+
+            & p{
+            display: block;
+            transition: .05s;
+            font: 400 16px /20px 'Montserrat', sans-serif;
+            color: #4F4F4F;
+            }
+
+            & .svg-hide{
+                display: none;
+            }
+
+            
+        }
+
+        & ~ .two{
+            padding-left: 220px;
+        }
+
+
+        & + .svg-checkbox{
+            transition-delay: 0.2s;
+            left: 184px;
+            transition: 1s all;
+            rotate: 900deg;
+            // fill: var.$iconHoverColor;
+            // background: white;
+        }
     }
 
-    &:checked ~ .svg-checkbox{
-        transition-delay: 0.2s;
-        left: 184px;
-        transition: 1s all;
-        rotate: 900deg;
-        // fill: var.$iconHoverColor;
-        // background: white;
-    }
-
-    &:hover ~ .svg-checkbox{
+    &:hover + .svg-checkbox{
         background: var.$iconHoverColor;
         fill: white;
-    }
-
-    &:checked ~ .svg-description{
-        display: initial;
-    }
-
-    &:checked ~ .sidebar{
-        width: 220px;
-        transition-delay: 0.2s;
-        transition: 1s all;
+        transform: scale(1.1);
     }
 }
 
+.two{
+    padding-left: 100px;
+    padding-right: 40px;
+}
 
 .logo-svg{
     width: 32px;
@@ -85,6 +117,7 @@ body{
 .svg-icon{
     max-height: 32px;
     width: 26px;
+    fill: #4F4F4F;
 }
 
 
@@ -92,22 +125,29 @@ body{
 .section {
     @include flexCenterCenter;
     height: 46px;
-    width: 100%;
     
 
     &:hover{
         background: var.$iconHoverColor;
         transition: 1s;
+        border-radius: 30px;
+
+        & + a .svg-description{
+            color: white;
+        }
+        
+        & a svg{
+            fill: white;
+        }
     } 
 
     & a{
         @include flexCenterCenter;
-        width: 100%;
 
         &:hover .svg-icon{
-            
             fill: white;
         }
+
     }
 }
 
@@ -123,21 +163,8 @@ body{
     height: 25px;
 
     &:hover{
-        background: inherit;
+        background: none;
     }
-    // display: inline-flex;
 }
-
-// .line-short{
-//     border-top: 2px solid var.$iconHoverColor;
-//     width: 8px;
-//     border-radius: 10px;
-// }
-
-// .line-long{
-//     border-top: 2px solid var.$iconHoverColor;
-//     width: 16px;
-//     border-radius: 10px;
-// }
 
 
