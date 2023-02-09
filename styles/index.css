@@ -156,13 +156,20 @@ body {
   transition-delay: 0.2s;
   transition: 1s all;
 }
+.increase-sidebar:checked ~ .sidebar ul .underline p {
+  margin-left: 0px;
+}
 .increase-sidebar:checked ~ .sidebar ul .section {
   justify-content: flex-start;
   padding-left: 15px;
   transition: 1s;
 }
-.increase-sidebar:checked ~ .sidebar ul .section a {
-  margin-left: 30px;
+.increase-sidebar:checked ~ .sidebar ul .section:hover .svg-description {
+  transition: 1s;
+  color: white;
+}
+.increase-sidebar:checked ~ .sidebar ul .section:hover .hide-text {
+  color: #4F4F4F;
 }
 .increase-sidebar:checked ~ .sidebar ul .section p {
   display: block;
@@ -173,14 +180,14 @@ body {
 .increase-sidebar:checked ~ .sidebar ul .section .svg-hide {
   display: none;
 }
-.increase-sidebar:checked ~ .two {
-  padding-left: 220px;
+.increase-sidebar:checked ~ .sidebar ul .section a {
+  margin-left: 30px;
 }
 .increase-sidebar:checked + .svg-checkbox {
   transition-delay: 0.2s;
   left: 184px;
   transition: 1s all;
-  rotate: 900deg;
+  rotate: 540deg;
 }
 .increase-sidebar:hover + .svg-checkbox {
   background: #9E8CFC;
@@ -214,11 +221,10 @@ body {
   transition: 1s;
   border-radius: 30px;
 }
-.section:hover + a .svg-description {
-  color: white;
-}
 .section:hover a svg {
   fill: white;
+  transition: 1s;
+  transform: scale(1.3);
 }
 .section a {
   display: flex;
@@ -239,6 +245,8 @@ body {
 
 .underline {
   height: 25px;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 .underline:hover {
   background: none;
